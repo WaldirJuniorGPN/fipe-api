@@ -14,11 +14,23 @@ public class Veiculo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer codigo;
-    private String nome;
+    private Integer tipoVeiculo;
+    private String modelo;
+    private String marca;
+    private String valor;
 
-    public void cadastroVeiculo(DadosCadastroVeiculo dados) {
-        this.codigo = dados.codigo();
-        this.nome = dados.nome();
+    public Veiculo(DadosCadastroVeiculo dados) {
+        this.tipoVeiculo = dados.tipoVeiculo();
+        this.modelo = dados.modelo();
+        this.marca = dados.marca();
+        this.valor = dados.valor();
+    }
+
+    @Override
+    public String toString() {
+        return "Tipo do Veículo: " + this.tipoVeiculo +
+                "\nModelo: " + this.modelo +
+                "\nMarca: " + this.modelo +
+                "\nValor: " + this.valor;
     }
 }
